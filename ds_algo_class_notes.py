@@ -50,39 +50,38 @@ class LinkedList:
             new_node.nextNote = self.head
             self.head = new_node
            
-    #linear running time
+    #linear running time O(N)
     def insert_end(self, data):
         self.numOfNodes = self.numOfNodes + 1
         new_node = Node(data)
-        
         actual_node =  self.head
         
-        while actual_node.nextNode is not None:
-            actual_node = actual_node.nextNode
+        while actual_node.nextNote is not None:
+            actual_node = actual_node.nextNote
         
         actual_node.nextNote = new_node
-        
+
     def remove(self, data):
-        
+
         if self.head is None:
-            return
-        
+            return 
         actual_node = self.head
         previous_node = None
-        
-        while actual_node is not None and actual_node != data:
+
+        while actual_node is not None and actual_node.data != data:
             previous_node = actual_node
-            actual_node = actual_node.nextNode
-            
+            actual_node = actual_node.nextNote
+
+        #item is not present
         if actual_node is None:
             return
-        
+
         if previous_node is None:
             self.head = actual_node.nextNote
         else:
             previous_node.nextNote = actual_node.nextNote
-            
-            
+
+
      #O(1)  
     def size_of_linkedList(self):
         return self.numOfNodes
@@ -97,7 +96,18 @@ class LinkedList:
             actual_node = actual_node.nextNote
             
 
+linked_list = LinkedList()
+linked_list.insert_start(4)
+linked_list.insert_start(2)
+linked_list.insert_end(3)
+linked_list.insert_end(5)
+linked_list.insert_end(1000.8)
+linked_list.insert_end('Adam')
 
+linked_list.traverse()
+linked_list.remove('Adam')
+print("-----")
+linked_list.traverse()
             
         
     
