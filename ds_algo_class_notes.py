@@ -96,18 +96,99 @@ class LinkedList:
             actual_node = actual_node.nextNote
             
 
-linked_list = LinkedList()
-linked_list.insert_start(4)
-linked_list.insert_start(2)
-linked_list.insert_end(3)
-linked_list.insert_end(5)
-linked_list.insert_end(1000.8)
-linked_list.insert_end('Adam')
+# linked_list = LinkedList()
+# linked_list.insert_start(4)
+# linked_list.insert_start(2)
+# linked_list.insert_end(3)
+# linked_list.insert_end(5)
+# linked_list.insert_end(1000.8)
+# linked_list.insert_end('Adam')
 
-linked_list.traverse()
-linked_list.remove('Adam')
-print("-----")
-linked_list.traverse()
-            
-        
+# linked_list.traverse()
+# linked_list.remove('Adam')
+# print("-----")
+# linked_list.traverse()
+
+
+##Stack Implementation, LIFO
+
+class Stack:
+
+    def __init__(self):
+        self.stack = []
+
+    #insert item on the stack // O(1)
+
+    def push(self, data):
+        self.stack.append(data)
+
+    #remove and return the last item we have inserted (LIFO) // O(1)
+
+    def pop(self):
+        data = self.stack[-1]
+        del self.stack[-1]
+        return data
     
+    # peek: return the last item without removing it // O(1)
+
+    def peek(self):
+        return self.stack[-1]
+
+     #O(1)
+    def is_empty(self):
+        return self.stack == []
+
+    def stack_size(self):
+        return len(self.stack)
+
+# stack = Stack()
+# print(stack.push(4))
+# print(stack.push(5))
+# print(stack.push(6))
+
+# print(stack.stack_size())
+# print(stack.pop())
+# print(stack.stack_size())
+# print(stack.peek())
+            
+#queue implementation FIFO
+
+class Queue:
+
+    def __init__(self):
+        self.queue = []
+
+
+    # O(1) running time
+    def is_empty(self):
+        return self.queue == []  
+
+
+    #O(1) enqueue
+    def enqueue (self, data):
+        self.queue.append(data)
+
+
+    #O(N) dequeue
+    def dequeue(self):
+        if self.size_queue() != 0:
+            data = self.queue[0]
+            del self.queue[0]
+            return data
+        else:
+            return -1
+
+    #O(1) peek
+    def peek(self):
+        return self.queue[0]
+
+    def size_queue(self):
+        return len(self.queue)
+
+queue = Queue()
+queue.enqueue(1)
+queue.enqueue(3)
+queue.enqueue(5)
+
+print(queue.size_queue)
+        
