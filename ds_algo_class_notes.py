@@ -233,7 +233,7 @@ class BinarySearchTree:
                 node.rightChild = Node(data, node)
 
 
-     def remove_node(self, data, node):
+    def remove_node(self, data, node):
 
         if node is None:
             return
@@ -348,14 +348,46 @@ class BinarySearchTree:
             self.traverse_in_order(node.rightChild)
 
 
-bst = BinarySearchTree()
-bst.insert(1)
-bst.insert(5)
-bst.insert(77)
-bst.insert(10000)
-bst.insert(100)
-bst.insert(-6)
+# bst = BinarySearchTree()
+# bst.insert(1)
+# bst.insert(5)
+# bst.insert(77)
+# bst.insert(10000)
+# bst.insert(100)
+# bst.insert(-6)
 
 
-print(' min %d' % bst.get_min(bst.root))
-bst.traverse()
+# print(' min %d' % bst.get_min(bst.root))
+# bst.traverse()
+
+#heap python implementation
+from heapq import heapify, heappop, heappush
+
+heap = []
+nums = [12,3,-2,6,4,8,9]
+
+# for num in nums:
+#     heappush(heap, num)
+
+# while heap:
+#     print(heappop(heap))
+
+# heapify(nums)
+# print(nums)
+
+#dictionary python implementation 
+
+#dict order is not keep
+dict_ex = {'Joe':14, 'Adam':26, 'Emil':56}
+
+print(dict_ex['Joe']) #O(1)
+
+dict_ex['Joe'] = 15
+
+# print(dict_ex['Joe'])
+
+# dict_ex.clear()
+
+print(dict_ex.items())
+print(dict_ex.keys())
+print(dict_ex.values())
