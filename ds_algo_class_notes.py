@@ -378,16 +378,85 @@ nums = [12,3,-2,6,4,8,9]
 #dictionary python implementation 
 
 #dict order is not keep
-dict_ex = {'Joe':14, 'Adam':26, 'Emil':56}
+# dict_ex = {'Joe':14, 'Adam':26, 'Emil':56}
 
-print(dict_ex['Joe']) #O(1)
+# print(dict_ex['Joe']) #O(1)
 
-dict_ex['Joe'] = 15
+# dict_ex['Joe'] = 15
 
-# print(dict_ex['Joe'])
+# # print(dict_ex['Joe'])
 
-# dict_ex.clear()
+# # dict_ex.clear()
 
-print(dict_ex.items())
-print(dict_ex.keys())
-print(dict_ex.values())
+# print(dict_ex.items())
+# print(dict_ex.keys())
+# print(dict_ex.values())
+
+
+#bubble sort
+def bubble_sort(nums):
+    for i in range(len(nums)-1):
+        for j in range(0, len(nums)-1-i,1):
+            if nums[j] > nums[j + 1]:
+                swap(nums,j,j+1)
+    return nums
+
+def swap(nums, i, j):
+    temp = nums[i]
+    nums[i] = nums[j]
+    nums[j] = temp
+
+
+##selection sort
+def selection_sort(nums):
+    for i in range(len(nums)-1):
+        index = i
+        for j in range(i +1, len(nums), 1):
+            if nums[j] <nums[index]:
+                index = j
+        if index != i:
+            swap(nums, index,i)
+    return nums
+
+## insertion sort
+def insertion_sort(nums):
+    for i in range(len(nums)):
+        j = i
+        
+        while j > 0 and nums[j -1] > nums[j]:
+            swap(nums,j,j-1)
+            j = j - 1
+    return nums
+
+## quick sort
+def quick_sort(nums, low, high):
+    if low >= high:
+        return 
+    
+    pivot_index = partition(nums, low, high)
+    quick_sort(nums, low, pivot_index - 1)
+    quick_sort(nums, pivot_index +1, high)
+
+
+def partition(nums, low, high):
+    pivot_index = (low + high) //2
+    swap(nums, pivot_index, high)
+
+    i = low
+
+    for j in range(low, high, 1):
+        if nums[j] <= nums[high]:
+            swap(nums, i, j)
+            i += 1
+    swap(nums, i, high)
+
+    return i 
+
+
+if __name__ == "__main__":
+    a=[1,9,3,10,7,8,9]
+    # print(bubble_sort(a))
+     #print(selection_sort(a))
+     #print(insertion_sort(a))
+    # quick_sort(a, 0, len(nums)-1)
+    print(a)
